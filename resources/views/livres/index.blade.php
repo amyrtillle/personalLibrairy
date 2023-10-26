@@ -28,7 +28,7 @@
                                 <th scope="col" class="px-6 py-4">Date de publication</th>
                                 <th scope="col" class="px-6 py-4">Éditeur</th>
                                 <th scope="col" class="px-6 py-4">n° ISBN</th>
-                                <th scope="col" class="px-6 py-4">&nbsp;</th>
+                                <th scope="col" class="px-6 py-4">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,11 +43,14 @@
                                 <td class="whitespace-nowrap px-6 py-4">{{ $livre->date_publication }}</td>
                                 <td class="whitespace-nowrap px-6 py-4">{{ $livre->editeur }}</td>
                                 <td class="whitespace-nowrap px-6 py-4">{{ $livre->isbn }}</td>                                
-                                <td class="whitespace-nowrap px-6 py-4" style="text-align:right;">
-                                    <form action="{{ route('livres.destroy',$livre->id) }}" method="Post">
+                                <td class="whitespace-nowrap px-6 py-4" style="text-align:center;">
+                                    <form action="{{ route('livres.destroy',$livre->id) }}" method="Post" style="display:flex;flex-direction:column;align-items:center;gap:10px">
                                         <a class="px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest"
                                             style="background-color:#3B71CA;"
                                             href="{{ route('livres.edit',$livre->id) }}">Modifier</a>
+                                        <a class="px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest"
+                                            style="background-color:#37DA5A;"
+                                            href="{{ route('livre.exemplaires.index',$livre->id) }}">Exemplaires</a>
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit"

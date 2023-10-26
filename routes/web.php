@@ -2,6 +2,7 @@
 use App\Http\Controllers\ControlerUsagers;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ControleurLivres;
+use App\Http\Controllers\ControlerExemplaires;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::resource('usagers', ControlerUsagers::class);
 
 Route::resource('livres', ControleurLivres::class);
+
+Route::resource('livre.exemplaires', ControlerExemplaires::class);
 
 Route::get('/', function () {
     return view('accueil');
