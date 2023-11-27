@@ -42,9 +42,10 @@
                                 <td class="whitespace-nowrap px-6 py-4">{{ $livre->prix }}</td>
                                 <td class="whitespace-nowrap px-6 py-4">{{ $livre->date_publication }}</td>
                                 <td class="whitespace-nowrap px-6 py-4">{{ $livre->editeur }}</td>
-                                <td class="whitespace-nowrap px-6 py-4">{{ $livre->isbn }}</td>                                
+                                <td class="whitespace-nowrap px-6 py-4">{{ $livre->isbn }}</td>
                                 <td class="whitespace-nowrap px-6 py-4" style="text-align:center;">
-                                    <form action="{{ route('livres.destroy',$livre->id) }}" method="Post" style="display:flex;flex-direction:column;align-items:center;gap:10px">
+                                    <form action="{{ route('livres.destroy',$livre->id) }}" method="Post"
+                                        style="display:flex;flex-direction:column;align-items:center;gap:10px">
                                         <a class="px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest"
                                             style="background-color:#3B71CA;"
                                             href="{{ route('livres.edit',$livre->id) }}">Modifier</a>

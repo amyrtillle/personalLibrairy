@@ -44,7 +44,9 @@
                                     @endif
                                 </td>
                                 <td class="whitespace-nowrap px-6 py-4" style="text-align:center;">
-                                    <form action="{{ route('livre.exemplaires.destroy',[$livre_id, $exemplaire->id]) }}" method="Post" style="display:flex;flex-direction:column;align-items:flex-start;gap:10px">
+                                    <form action="{{ route('livre.exemplaires.destroy',[$livre_id, $exemplaire->id]) }}"
+                                        method="Post"
+                                        style="display:flex;flex-direction:column;align-items:flex-start;gap:10px">
                                         <a class="px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest"
                                             style="background-color:#3B71CA;"
                                             href="{{ route('livre.exemplaires.edit',[$livre_id, $exemplaire->id]) }}">Modifier</a>

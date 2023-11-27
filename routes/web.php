@@ -25,7 +25,7 @@ Route::get('/', function () {
     return view('accueil');
 });
 
-Route::get('/tableaudebord', function () {
+Route::any('/tableaudebord', function () {
     return view('tableaudebord');
 })->middleware(['auth', 'verified'])->name('tableaudebord');
 
@@ -35,4 +35,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
