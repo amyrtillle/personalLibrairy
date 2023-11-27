@@ -27,13 +27,24 @@
                         </thead>
                         <tbody>
                             @foreach ($exemplaires as $exemplaire)
+                            @php
+                            $etat = config('consts.livres_etats');
+                            $dispo = config('consts.livres_dispo');
+                            @endphp
                             <tr class="border-b dark:border-neutral-500">
                                 <td class="whitespace-nowrap px-6 py-4">{{ $exemplaire->id }}</td>
-                                <td class="whitespace-nowrap px-6 py-4">{{ $exemplaire->etat }}</td>
-                                <td class="whitespace-nowrap px-6 py-4">{{ $exemplaire->dispo }}</td>
-                                <td class="whitespace-nowrap px-6 py-4">{{ $exemplaire->retour }}</td>
+                                <td class="whitespace-nowrap px-6 py-4"> {{ $etat[$exemplaire->etat] }}</td>
+                                <td class="whitespace-nowrap px-6 py-4">{{ $dispo[$exemplaire->dispo] }}</td>
+                                <td class="whitespace-nowrap px-6 py-4">
+                                    @if ($exemplaire->retour )
+                                    {{ $exemplaire->retour }}
+                                    @endif
+                                    @if ($exemplaire->retour == null)
+                                    {{ 'Pas de date de retour' }}
+                                    @endif
+                                </td>
                                 <td class="whitespace-nowrap px-6 py-4" style="text-align:center;">
-                                    <form action="{{ route('livre.exemplaires.destroy',[$livre_id, $exemplaire->id]) }}" method="Post" style="display:flex;flex-direction:column;align-items:center;gap:10px">
+                                    <form action="{{ route('livre.exemplaires.destroy',[$livre_id, $exemplaire->id]) }}" method="Post" style="display:flex;flex-direction:column;align-items:flex-start;gap:10px">
                                         <a class="px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest"
                                             style="background-color:#3B71CA;"
                                             href="{{ route('livre.exemplaires.edit',[$livre_id, $exemplaire->id]) }}">Modifier</a>
