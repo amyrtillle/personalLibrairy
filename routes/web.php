@@ -21,7 +21,7 @@ Route::resource('livres', ControleurLivres::class);
 
 Route::resource('livre.exemplaires', ControlerExemplaires::class);
 
-Route::get('/', function () {
+Route::any('/', function () {
     return view('accueil');
 });
 
